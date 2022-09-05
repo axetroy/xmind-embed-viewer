@@ -28,16 +28,17 @@ export class XMindEmbedViewer {
     el: HTMLElement | HTMLIFrameElement | string;
     styles?: Partial<CSSStyleDeclaration>
     file?: ArrayBuffer;
+    origin?: string
   }) {
     const {
-      file, el, styles = {
+      file, el, origin = location.origin, styles = {
         'height': '350px',
         'width': '750px'
       }
     } = args
 
-    const iframeController = new IframeController(el, 'https://www.xmind.app/embed-viewer')
-    const iframeEventChannelController = new IframeEventChannelController(iframeController, 'https://www.xmind.app')
+    const iframeController = new IframeController(el, `${origin}/embed-viewer`)
+    const iframeEventChannelController = new IframeEventChannelController(iframeController, origin)
 
     this.iframeController = iframeController
     this.iframeEventChannelController = iframeEventChannelController
