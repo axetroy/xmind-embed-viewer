@@ -1,3 +1,5 @@
+**Offline xmind renderer, it does not require internet connection, [see demo](/demo)**
+
 # XMind Embed Viewer
 Use XMind share to present your `.xmind` files on your blog or website.
 
