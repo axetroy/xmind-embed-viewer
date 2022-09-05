@@ -28,7 +28,7 @@ export class XMindEmbedViewer {
     el: HTMLElement | HTMLIFrameElement | string;
     styles?: Partial<CSSStyleDeclaration>
     file?: ArrayBuffer;
-    origin?: string
+    origin: string
   }) {
     const {
       file, el, origin = location.origin, styles = {
@@ -37,7 +37,9 @@ export class XMindEmbedViewer {
       }
     } = args
 
-    const iframeController = new IframeController(el, `${origin}/embed-viewer`)
+    const pathname = `/${location.pathname}/embed-viewer`.replace(/\/{2,}/g, '/')
+
+    const iframeController = new IframeController(el, `${origin}${pathname}`)
     const iframeEventChannelController = new IframeEventChannelController(iframeController, origin)
 
     this.iframeController = iframeController
