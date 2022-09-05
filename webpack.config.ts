@@ -57,7 +57,7 @@ const config: Configuration[] = [
       library: 'XMindEmbedViewer',
       libraryTarget: 'umd',
       libraryExport: 'XMindEmbedViewer',
-      path: path.join(__dirname, 'dist/umd'),
+      path: path.join(__dirname, 'demo'),
       filename: 'xmind-embed-viewer.js'
     },
     plugins: [
